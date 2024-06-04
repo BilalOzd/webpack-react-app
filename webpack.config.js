@@ -1,0 +1,22 @@
+const path = require('path'); // EC module system yerine CommonJS NodeJS module sistem kullkanılmış.
+ 
+module.exports = {
+    entry: './src/index.tsx', // uygulama giriş noktası, uygulama buradan bootstrap olur.
+    output: { // uygulama çıktısında hangi isimde hangi klasör altında tutulacağı
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    resolve: { 
+        // uygulamanın hangi dosya tipinde olduğu
+        extensions: ['.tsx', '.ts', '.js','jsx'],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader',
+            },
+        ],
+    },
+};
