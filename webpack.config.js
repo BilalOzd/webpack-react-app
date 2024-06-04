@@ -1,5 +1,6 @@
 const path = require('path'); // EC module system yerine CommonJS NodeJS module sistem kullkanılmış.
- 
+const htmlWebPack = require('html-webpack-plugin');
+
 module.exports = {
     entry: './src/index.tsx', // uygulama giriş noktası, uygulama buradan bootstrap olur.
     output: { // uygulama çıktısında hangi isimde hangi klasör altında tutulacağı
@@ -19,4 +20,9 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new htmlWebPack({
+            template: './src/index.html',
+        }),
+    ],
 };
