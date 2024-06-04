@@ -3,20 +3,25 @@ const htmlWebPack = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.tsx', // uygulama giriş noktası, uygulama buradan bootstrap olur.
+    mode: 'development',
     output: { // uygulama çıktısında hangi isimde hangi klasör altında tutulacağı
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: { 
         // uygulamanın hangi dosya tipinde olduğu
-        extensions: ['.tsx', '.ts', '.js','jsx'],
+        extensions: ['.tsx', '.ts', '.js','.jsx']
     },
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)$/,
+                test: /\.(ts|tsx|js|jsx)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader',
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
             },
         ],
     },
@@ -25,4 +30,8 @@ module.exports = {
             template: './src/index.html',
         }),
     ],
+    devServer: {
+        port: 3001,
+        historyApiFallback: true,
+    },
 };
