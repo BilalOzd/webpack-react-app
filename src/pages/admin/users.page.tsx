@@ -42,9 +42,9 @@ function UsersPage() {
 							<div key={item.id}>
 								{/* /admin/users/1 */}
 								<Link to={item.id.toString()}>{item.username}</Link>
-								{/* /admin/user?email=ali&name=tansu */}
-								<br></br>
-								<Link to={`search?email=${item.email}&name=${item.name}`}>
+								{/*   AŞAĞIDAKİ LİNK ÖRNEK OLARAK ŞUNU AÇAR --> /admin/user?email=Sincere@april.biz&name=Bret   */}
+								{' - '}
+								<Link to={`${item.id}?email=${item.email}&name=${item.name}`}>
 									{item.email}
 								</Link>
 							</div>
