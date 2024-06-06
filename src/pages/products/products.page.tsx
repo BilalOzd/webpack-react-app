@@ -1,7 +1,7 @@
 
 import axios from 'axios';
-import Helmet from 'helmet';
 import React, { FormEvent, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 //import { Helmet } from 'react-helmet-async';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 //import { getProducts } from '../../services/product.service';
@@ -38,11 +38,11 @@ function ProductsPage() {
 
 		console.log('searchText', searchText);
 
-		// getProducts(
-		// 	`?$filter=substringof('${searchText}',ProductName)&$format=json`
-		// ).then((data) => {
-		// 	console.log('data', data);
-		// });
+		getProducts(
+			`?$filter=substringof('${searchText}',ProductName)&$format=json`
+		).then((data) => {
+			console.log('data', data);
+		});
 	};
 
 	useEffect(() => {
@@ -52,11 +52,11 @@ function ProductsPage() {
 
 	return (
 		<>
-			{/* <Helmet>
+			<Helmet>
 				<title>Ürünlerimiz</title>
 				<meta name="description" content="React App"></meta>
 				<meta name="keywords" content="Products,Ürünler"></meta>
-			</Helmet> */}
+			</Helmet>
 			<form method="GET" onSubmit={onFormSubmit}>
 				<input onChange={onSearchInput} placeholder="ürün ismi arayınız" />
 				<br></br>

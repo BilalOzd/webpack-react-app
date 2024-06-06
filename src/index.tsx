@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {Helmet, HelmetProvider} from 'react-helmet-async';
 import AdminLayout from './layouts/admin.layout';
 import UsersPage from './pages/admin/users.page';
 import UserDetailPage from './pages/admin/user.detail.page';
@@ -62,4 +63,8 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 
-root.render(<RouterProvider router={router} />);
+root.render(
+	<HelmetProvider>
+		<RouterProvider router={router} />
+	</HelmetProvider>
+);
