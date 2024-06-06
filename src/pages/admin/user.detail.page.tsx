@@ -9,7 +9,7 @@ function UserDetailPage() {
 
 	return (
 		<>
-			id: {params.id}
+			id: {params.id} {/*id değeri index.tsx'ten gelen keyword*/}
 			<br></br>
 			queryString: {serachParams.get('email')} / {serachParams.get('name')}
 		</>

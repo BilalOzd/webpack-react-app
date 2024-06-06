@@ -38,6 +38,7 @@ const router = createBrowserRouter([
 				Component: UsersPage,
 			},
 			{
+				// user.detail.page.tsx'te yakaladığın useParams() değeri burada verdiğin 'id' keywordü ile eşleşmeli
 				path: 'users/:id',
 				Component: UserDetailPage,
 			},
