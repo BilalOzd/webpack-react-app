@@ -38,11 +38,11 @@ function ProductsPage() {
 
 		console.log('searchText', searchText);
 
-		getProducts(
-			`?$filter=substringof('${searchText}',ProductName)&$format=json`
-		).then((data) => {
-			console.log('data', data);
-		});
+		// getProducts(
+		// 	`?$filter=substringof('${searchText}',ProductName)&$format=json`
+		// ).then((data) => {
+		// 	console.log('data', data);
+		// });
 	};
 
 	useEffect(() => {
