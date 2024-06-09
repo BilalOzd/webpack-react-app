@@ -2,9 +2,8 @@
 import axios from 'axios';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-//import { Helmet } from 'react-helmet-async';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-//import { getProducts } from '../../services/product.service';
+import { getProducts } from '../services/product.service';
 
 function ProductsPage() {
 	const [searchParams] = useSearchParams({ q: '' }); // querystring state set etme yada get etme
@@ -38,11 +37,12 @@ function ProductsPage() {
 
 		console.log('searchText', searchText);
 
-		// getProducts(
-		// 	`?$filter=substringof('${searchText}',ProductName)&$format=json`
-		// ).then((data) => {
-		// 	console.log('data', data);
-		// });
+		//src/services/product.service.ts üzerindeki getProducts() metodu ile daha temiz bir şekilde alıyoruz.
+		getProducts(
+			`?$filter=substringof('${searchText}',ProductName)&$format=json`
+		).then((data) => {
+			console.log('data', data);
+		});
 	};
 
 	useEffect(() => {
